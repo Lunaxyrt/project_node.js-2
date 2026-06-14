@@ -67,7 +67,7 @@ body {
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
-    background: linear-gradient(90deg, #858585, #858585);
+background: linear-gradient(90deg, #858585, #858585);
     color: black;
     transition: 0.2s;
 }
