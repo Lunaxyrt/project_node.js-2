@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import userRoutes from "./routes/user.mjs";
-import db from "./database/db.mjs"; // correct import
+import db from "./database/db.mjs";
 
 const app = express();
 const PORT = 3000;
@@ -21,3 +21,5 @@ app.use("/api", userRoutes);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+initDB();
