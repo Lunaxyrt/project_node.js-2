@@ -1,35 +1,36 @@
 import express from "express";
-import { db } from "../database/db.mjs";
-import { validateRegistration } from "../utils/validationSchemas.mjs";
+import bcrypt from "bcrypt";
+import db from "../database/db.mjs";
 
 const router = express.Router();
 
-router.post("/register", (req, res) => {
+router.post("/register", async (req, res) => {
     try {
-        const errors = validateRegistration(req.body);
+        const { username, password, email } = req.body;
 
-        if (Object.keys(errors).length > 0) {
-            return res.status(400).json({ error: errors });
+        if (!username || !password || !email) {
+            return res.status(400).json({ error: "Missing fields" });
         }
 
-        const { username, password, email } = req.body;
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         db.run(
             `INSERT INTO users (username, password, email) VALUES (?, ?, ?)`,
-            [username, password, email],
+            [username, hashedPassword, email],
             function (err) {
                 if (err) {
-                    return res.status(400).json({ error: err.message });
+                    console.error("DB error:", err.message);
+                    return res.status(500).json({ error: "Database error" });
                 }
 
-                return res.json({ success: true, id: this.lastID });
+                res.json({ message: "User registered successfully!" });
             }
         );
-    } catch (err) {
-        console.error("SERVER ERROR:", err);
-        return res.status(500).json({ error: "Internal server error" });
+    } catch (error) {
+        console.error("Hashing error:", error);
+        res.status(500).json({ error: "Server error" });
     }
 });
 
 export default router;
-
