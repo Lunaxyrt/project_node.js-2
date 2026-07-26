@@ -1,0 +1,138 @@
+/* PAGE BACKGROUND */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #4a6cf7, #8a3cf7);
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+}
+
+/* STAR PARTICLES */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+/* MAIN CONTAINER */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 420px;
+    padding: 35px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+
+    text-align: center;
+}
+
+/* TITLE */
+.title {
+    font-size: 34px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+/* INPUT FIELDS */
+.input-field {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 17px;
+}
+
+.input-field::placeholder {
+    color: #e0e0e0;
+}
+
+/* PASSWORD WRAPPER */
+.password-wrapper {
+    position: relative;
+}
+
+.show-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* CAPTCHA BOX */
+.captcha-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+#captchaText {
+    font-size: 22px;
+    letter-spacing: 4px;
+}
+
+#refreshCaptcha {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* REGISTER BUTTON */
+.register-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+
+    background: #6a4cf7;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: #8a6cf7;
+}
+
+/* ERROR TEXT */
+.error {
+    color: #ffb3b3;
+    font-size: 14px;
+    text-align: left;
+    margin-top: -5px;
+}
