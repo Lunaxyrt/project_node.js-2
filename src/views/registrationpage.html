@@ -133,14 +133,11 @@
 
             if (Object.keys(errors).length > 0) return;
 
-<<<<<<< HEAD
             try {
                 const response = await fetch("http://127.0.0.1:3000/api/register", {
-=======
-            // --- SEND TO BACKEND (FIXED: SEND ALL FIELDS) ---
+
             try {
                 const response = await fetch("http://localhost:3000/api/register", {
->>>>>>> 85aab95d76d888b11708a6ed8274f5027782310b
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -156,10 +153,7 @@
 
                 if (response.ok) {
                     alert("User saved to database!");
-<<<<<<< HEAD
                     window.location.href = "http://127.0.0.1:3000/homepage.html";
-=======
->>>>>>> 85aab95d76d888b11708a6ed8274f5027782310b
                 } else {
                     alert("Error: " + JSON.stringify(result.error));
                 }
