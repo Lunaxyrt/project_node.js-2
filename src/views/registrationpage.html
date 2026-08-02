@@ -107,7 +107,7 @@
             if (Object.keys(errors).length > 0) return;
 
             try {
-                const response = await fetch("http://127.0.0.1:3000/api/register", {
+                const response = await fetch("/api/register", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -123,7 +123,7 @@
 
                 if (response.ok) {
                     alert("User saved to database!");
-                    window.location.href = "http://127.0.0.1:3000/homepage.html";
+                    window.location.href = "/home";
                 } else {
                     alert("Error: " + JSON.stringify(result.error));
                 }
