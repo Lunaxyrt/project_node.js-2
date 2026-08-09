@@ -39,3 +39,6 @@ app.use("/api", userRoutes);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+ 
+
+//http://127.0.0.1:3000/register
