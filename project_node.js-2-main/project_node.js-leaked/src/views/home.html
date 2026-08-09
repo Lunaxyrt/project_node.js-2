@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <!-- Fashion-style font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6a5acd, #7b68ee, #4169e1, #4b0082);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite, fadeIn 1.5s ease forwards;
+            opacity: 0;
+            font-family: 'Playfair Display', serif;
+            color: white;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-box {
+            padding: 25px 50px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 14px;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .welcome-box h1 {
+            font-size: 48px;
+            margin: 0;
+            letter-spacing: 3px;
+        }
+
+        .small-text {
+            margin-top: 25px;
+            font-size: 18px;
+            opacity: 0.9;
+            text-align: center;
+            animation: fadeIn 2.5s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="welcome-box">
+        <h1>Welcome</h1>
+    </div>
+
+    <div class="small-text">
+        The page is in progress, please wait for Dima and Artem to finish it (if they will)
+    </div>
+</body>
+</html>
