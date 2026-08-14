@@ -1,30 +1,12 @@
-export function validateRegistration(data) {
+export function validateLogin(data) {
     const errors = {};
 
-    // username
     if (!data.username || data.username.trim().length < 5) {
-        errors.username = "Username має бути мінімум 5 символи";
+        errors.username = "login must be at least 5 symbols";
     }
 
-    // password
     if (!data.password || data.password.length < 8) {
-        errors.password = "Пароль має бути мінімум 8 символів";
-    }
-
-    // confirmPassword
-    if (data.password !== data.confirmPassword) {
-        errors.confirmPassword = "Паролі не співпадають";
-    }
-
-    // email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!data.email || !emailPattern.test(data.email)) {
-        errors.email = "Некоректний email";
-    }
-
-    // confirmEmail
-    if (data.email !== data.confirmEmail) {
-        errors.confirmEmail = "Email не співпадає";
+        errors.password = "password must contain atleast 8 symbols";
     }
 
     return errors;

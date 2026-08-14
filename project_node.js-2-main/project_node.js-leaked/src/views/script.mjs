@@ -1,3 +1,28 @@
+console.log("🔥 SCRIPT LOADED");
+
+import { validateLogin } from "../utils/validationSchemas.mjs";
+
+document.getElementById("loginBtn").addEventListener("click", () => {
+    console.log("🔥 BUTTON CLICKED");
+
+    const formData = {
+        username: document.getElementById("login").value,
+        password: document.getElementById("password").value
+    };
+
+    const errors = validateLogin(formData);
+    console.log("🔥 ERRORS:", errors);
+
+    if (Object.keys(errors).length > 0) {
+        alert("Ошибка: " + JSON.stringify(errors));
+        return;
+    }
+
+    window.location.href = "./home.html";
+
+
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     /* Показать/скрыть пароль */
     const password = document.getElementById("password");
@@ -69,4 +94,5 @@ async function hashPassword(password) {
 }
 
 hashPassword("mySecretPassword");
+
 
